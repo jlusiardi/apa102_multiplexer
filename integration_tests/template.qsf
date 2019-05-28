@@ -1,0 +1,76 @@
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C5T144C8
+set_global_assignment -name TOP_LEVEL_ENTITY {{ ENITIYNAME }}
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:24:36  MARCH 14, 2019"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name VHDL_FILE {{ ENITIYNAME }}.vhd -hdl_version VHDL_2008
+set_global_assignment -name VHDL_FILE pck_myhdl_010.vhd
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 144
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_3 -to led_d2
+set_location_assignment PIN_7 -to led_d4
+set_location_assignment PIN_9 -to led_d5
+set_location_assignment PIN_17 -to clock
+set_location_assignment PIN_72 -to segment[0]
+set_location_assignment PIN_71 -to segment[1]
+set_location_assignment PIN_70 -to leds[0]
+set_location_assignment PIN_60 -to leds[6]
+set_location_assignment PIN_63 -to leds[5]
+set_location_assignment PIN_64 -to leds[4]
+set_location_assignment PIN_65 -to leds[3]
+set_location_assignment PIN_67 -to leds[2]
+set_location_assignment PIN_69 -to leds[1]
+set_location_assignment PIN_144 -to reset
+set_location_assignment PIN_32 -to tx_pin
+set_location_assignment PIN_31 -to rx_pin
+
+set_location_assignment PIN_25 -to ce_in
+set_location_assignment PIN_18 -to mosi_in
+set_location_assignment PIN_21 -to miso_in
+set_location_assignment PIN_22 -to clk_in
+
+set_location_assignment PIN_103 -to datas[11]
+set_location_assignment PIN_101 -to clocks[11]
+
+set_location_assignment PIN_113 -to datas[10]
+set_location_assignment PIN_112 -to clocks[10]
+
+set_location_assignment PIN_115 -to datas[9]
+set_location_assignment PIN_114 -to clocks[9]
+
+set_location_assignment PIN_119 -to datas[8]
+set_location_assignment PIN_118 -to clocks[8]
+
+set_location_assignment PIN_121 -to datas[7]
+set_location_assignment PIN_120 -to clocks[7]
+
+set_location_assignment PIN_125 -to datas[6]
+set_location_assignment PIN_122 -to clocks[6]
+
+set_location_assignment PIN_129 -to datas[5]
+set_location_assignment PIN_126 -to clocks[5]
+
+set_location_assignment PIN_133 -to datas[4]
+set_location_assignment PIN_132 -to clocks[4]
+
+set_location_assignment PIN_135 -to datas[3]
+set_location_assignment PIN_134 -to clocks[3]
+
+set_location_assignment PIN_137 -to datas[2]
+set_location_assignment PIN_136 -to clocks[2]
+
+set_location_assignment PIN_141 -to datas[1]
+set_location_assignment PIN_139 -to clocks[1]
+
+set_location_assignment PIN_143 -to datas[0]
+set_location_assignment PIN_142 -to clocks[0]
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

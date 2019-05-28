@@ -1,0 +1,15 @@
+venv/
+.idea/
+__pycache__/
+VHDL/db
+VHDL/incremental_db
+VHDL/output_files
+VHDL/MyHDL_test.vhd
+VHDL/pck_myhdl_010.vhd
+test_results/vcd/*.vcd
+test_results/vhd/*.vhd
+/VHDL/*.bak
+work/
+integration_tests/*/
+/.coverage
+/docs/.~lock.microcode.ods#
