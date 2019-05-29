@@ -8,6 +8,7 @@ def run_integration(script_file, entity):
     parser.add_argument('--map-only', dest='map_only', action='store_true')
     parser.add_argument('--skip-programming', dest='skip_programming', action='store_true')
     parser.add_argument('--permanent', dest='permanent', action='store_true', help='write into Serial Flash')
+    parser.add_argument('--programmer', dest='programmer', help='use "quartus_pgm -l"')
     args = parser.parse_args()
 
     # calculate entity name
@@ -53,6 +54,10 @@ def run_integration(script_file, entity):
         os.mkdir(path)
 
     if not args.skip_programming:
+        if not args.programmer:
+            print('no programmer given')
+            exit(1)
+
         if not args.permanent:
             # create cdf file from template
             with open('template.cdf', 'r') as template_file:
@@ -60,7 +65,7 @@ def run_integration(script_file, entity):
                 with open(os.path.join(path, entity_name + '.cdf'), 'w') as project_file:
                     project_file.write(template.render(ENITIYNAME=entity_name))
             a = subprocess.run(
-                ['quartus_pgm', '--64bit', '-c', 'USB-Blaster(Altera)', '{entity}.cdf'.format(entity=entity_name)],
+                ['quartus_pgm', '--64bit', '-c', args.programmer, '{entity}.cdf'.format(entity=entity_name)],
                 cwd=path)
             if a.returncode != 0:
                 exit(a.returncode)
@@ -69,9 +74,9 @@ def run_integration(script_file, entity):
             with open('template_AS.cdf', 'r') as template_file:
                 template = jinja2.Template(template_file.read())
                 with open(os.path.join(path, entity_name + '_as.cdf'), 'w') as project_file:
-                    project_file.write(template.render(ENITIYNAME=entity_name))
+                    project_file.write(template.render(ENTITYNAME=entity_name))
             a = subprocess.run(
-                ['quartus_pgm', '--64bit', '-c', 'USB-Blaster(Altera)', '{entity}.cdf'.format(entity=entity_name)],
+                ['quartus_pgm', '--64bit', '-c', args.programmer, '{entity}_as.cdf'.format(entity=entity_name)],
                 cwd=path)
             if a.returncode != 0:
                 exit(a.returncode)
