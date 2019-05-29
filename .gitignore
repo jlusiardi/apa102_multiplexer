@@ -13,3 +13,4 @@ work/
 integration_tests/*/
 /.coverage
 /docs/.~lock.microcode.ods#
+*.pyc
